@@ -11,6 +11,7 @@ By considering the terms in the Fibonacci sequence that do not exceed the nth te
 function fiboEvenSum(n) {
   // You can do it!
   let fiboArray = [1, 2]
+  let evenFiboArray = [2]
   if (n === 1) {
     return 0
   } else if (n === 2) {
@@ -18,14 +19,23 @@ function fiboEvenSum(n) {
   }
   console.log(fiboArray)
 
-  for (let i = 2; i <= n; i++) {
-    let lastFiboNumber = fiboArray[1]
-    console.log('lastFiboNumber: ' + lastFiboNumber)
-    let nextFiboNumber = fiboArray[0] + fiboArray[1]
-
-    fiboArray = [lastFiboNumber, nextFiboNumber]
+  for (let i = 2; i < n; i++) {     
+    let nextFiboNumber = fiboArray[fiboArray.length - 1] + fiboArray[fiboArray.length - 2]
+    //console.log('lastFiboNumber' + nextFiboNumber)
+    fiboArray.push(nextFiboNumber)
+    //console.log(fiboArray)
+    if (nextFiboNumber % 2 === 0) {
+    //  console.log("Should be even: " + nextFiboNumber)
+      evenFiboArray.push(nextFiboNumber)
+    }
+    
   }
 
-  console.log(fiboArray[0] + fiboArray[1])
-  return fiboArray[0] + fiboArray[1];
+ // console.log(evenFiboArray)
+ // console.log(evenFiboArray.reduce((total, num) => total + num))
+  return evenFiboArray.reduce((total, num)=>total + num);
 }
+
+let answer = fiboEvenSum(10);
+
+//console.log(answer)
