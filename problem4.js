@@ -1,4 +1,4 @@
-
+/* Still need to add digit functionality and double check all if it is multiply all the numbers */
 
 function checkPalidrome(cNum) {
   //console.log("checkNum is: " + cNum)
@@ -6,7 +6,7 @@ function checkPalidrome(cNum) {
      
 
   let checkPal = true
-  for (i = 0; i <= cNum.length; i++) {
+  for (let i = 0; i <= cNum.length; i++) {
     let checkLength = cNum.length - 1 - i;
 
     if (cNum[i] !== cNum[checkLength]) {
@@ -40,16 +40,16 @@ function largestPalindromeProduct(n) {
   
  
 
-  let maxNumber = Math.pow(10, 2) - 1;
-  let minPalindrome = Math.pow(10, (2 * 2) - 1)
-  console.log(maxNumber)
-  console.log(minPalindrome)
+  let maxNumber = Math.pow(10, n) - 1;
+  let minPalindrome = Math.pow(10, (n * 2) - 1)
+  console.log("maxNumber: " + maxNumber)
+  console.log("minPalindrom: " + minPalindrome)
 
   
 
-  for (firstNum = 1; firstNum < maxNumber; firstNum++) {
+  for (let firstNum = 1; firstNum <= maxNumber; firstNum++) {
 
-    for (secondNum = 1; secondNum < maxNumber; secondNum++) { 
+    for (let secondNum = 1; secondNum <= maxNumber; secondNum++) { 
       let Num = firstNum * secondNum;
       let chkNum = [...Num + ''];  
       //console.log("chkNum is: " + chkNum)
