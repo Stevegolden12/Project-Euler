@@ -1,22 +1,26 @@
-function smallestMult(n) {
-  // Good luck!
-  let allNumberMult = false;
+function checkAllNum(multiple, checkNumber) {
+  let isMultiple = true;
 
-
-  while (allNumberMult == false) {
-    let stopAndGo = true
-    for (let i = n; stopAndGo == true; i++) {
-      for (let j = 2; j <= n; j++) {
-        if (i % j == 0) { }
-        else {
-          stopAndGo = false;
-        }
-      }
-      
+  for (let i = 1; i <= multiple; i++) {
+    if (checkNumber % i != 0) {
+      isMultiple = false;
     }
   }
-
-  return true;
+  return isMultiple;
 }
 
-smallestMult(20);
+function smallestMult(n) {
+  // Good luck!
+  let smallMultiple = 0;
+  let stop = false;
+  let i = n
+
+  do {
+    i = i + 1;
+  } while (!checkAllNum(n, i))
+
+  smallMultiple = i;
+  return smallMultiple;
+}
+
+console.log(smallestMult(20));
