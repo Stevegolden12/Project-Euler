@@ -22,7 +22,7 @@ function nthPrime(n) {
       isPrime = true;
 
     num += 2;
-      }
+}
 
 
   return primes[primes.length - 1];
